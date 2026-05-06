@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 🔥 FULL DATA (NO CUT)
+//  FULL DATA (NO CUT)
 let posts = [
   {
     id: 1,
@@ -46,17 +46,17 @@ let posts = [
   }
 ];
 
-// 🟢 HOME
+//  HOME
 app.get("/", (req, res) => {
   res.send("Backend running 🚀");
 });
 
-// 🟢 GET POSTS
+//  GET POSTS
 app.get("/posts", (req, res) => {
   res.json(posts);
 });
 
-// ❤️ LIKE
+//  LIKE
 app.post("/like/:id", (req, res) => {
   const post = posts.find(p => p.id === parseInt(req.params.id));
   const { action } = req.body;
@@ -73,7 +73,7 @@ app.post("/like/:id", (req, res) => {
   res.json({ likes: post.likes });
 });
 
-// ⭐ SUPPORT
+//  SUPPORT
 app.post("/support/:id", (req, res) => {
   const post = posts.find(p => p.id === parseInt(req.params.id));
   const { action } = req.body;
